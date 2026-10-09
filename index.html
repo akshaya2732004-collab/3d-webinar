@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elena Vance — LinkedIn Content Strategist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #fcf9f2;
+      --bg-alt: #f6f3ec;
+      --bg-card: #f1eee7;
+      --dark: #141312;
+      --ink: #1c1c18;
+      --muted: #605e5c;
+      --muted-light: #cac6c4;
+      --border: #e5e2db;
+      --accent: #1e3a8a;
+      --accent-ink: #00236f;
+      --serif: "Newsreader", Georgia, "Times New Roman", serif;
+      --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 48px; }
+    .narrow { max-width: 896px; margin: 0 auto; padding: 0 48px; }
+
+    .eyebrow {
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 40px;
+      line-height: 48px;
+      letter-spacing: -0.6px;
+      color: var(--ink);
+    }
+    .lead {
+      font-size: 18px;
+      line-height: 28px;
+      color: var(--muted);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      padding: 14px 28px;
+      border-radius: 4px;
+      white-space: nowrap;
+      transition: opacity 0.2s, background 0.2s;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { opacity: 0.9; }
+    .btn-outline { border-color: var(--ink); color: var(--ink); background: transparent; }
+    .btn-outline:hover { background: var(--ink); color: var(--bg); }
+    .btn-light { background: #fff; color: var(--ink); }
+    .btn-light:hover { opacity: 0.9; }
+
+    /* ---------- Header ---------- */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(252, 249, 242, 0.92);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .brand {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 22px;
+      letter-spacing: -0.55px;
+    }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a {
+      font-weight: 500;
+      font-size: 14px;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav .btn { padding: 12px 24px; }
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 8px 12px;
+      font-size: 14px;
+      cursor: pointer;
+      color: var(--ink);
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      padding: 80px 0 128px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 64px;
+      align-items: center;
+    }
+    .hero-copy { grid-column: 1 / span 7; }
+    .hero-visual { grid-column: 8 / span 5; position: relative; }
+    .hero-copy .eyebrow { margin-bottom: 24px; }
+    .hero-copy h1 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 52px;
+      line-height: 60px;
+      letter-spacing: -1.04px;
+      margin-bottom: 32px;
+    }
+    .hero-copy .lead { max-width: 672px; margin-bottom: 40px; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 32px; }
+    .hero-tags { margin-top: 8px; }
+
+    .portrait {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+      max-width: 448px;
+      margin-left: auto;
+    }
+    .portrait img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+    }
+    .post-card {
+      position: absolute;
+      bottom: -32px;
+      left: -32px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 21px;
+      max-width: 384px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    }
+    .post-author { display: flex; align-items: center; gap: 12px; }
+    .avatar {
+      width: 36px; height: 36px;
+      border-radius: 12px;
+      background: #ebe8e1;
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 600; font-size: 14px; color: var(--accent-ink);
+      flex-shrink: 0;
+    }
+    .post-author .name { font-weight: 500; font-size: 14px; }
+    .post-author .role { font-size: 12px; color: var(--muted); }
+    .post-quote {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 14px;
+      line-height: 22px;
+    }
+    .post-meta {
+      background: var(--bg-card);
+      border-radius: 2px;
+      padding: 5px 12px 4px;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.96px;
+      color: var(--muted);
+      align-self: flex-start;
+    }
+    .badge {
+      position: absolute;
+      top: -16px;
+      right: -16px;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 14px 17px 12px;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 14px;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+      white-space: nowrap;
+    }
+
+    /* ---------- Introduction ---------- */
+    .intro {
+      background: var(--bg-alt);
+      border-top: 1px solid var(--border);
+      padding: 128px 0;
+    }
+    .intro-grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 48px;
+    }
+    .intro-label { grid-column: 1 / span 4; padding-top: 4px; }
+    .intro-body { grid-column: 5 / span 8; display: flex; flex-direction: column; gap: 32px; }
+    .intro-body .lead { color: var(--muted); }
+    .intro-body em {
+      font-family: var(--serif);
+      font-style: italic;
+      color: var(--ink);
+      text-decoration: underline;
+      text-decoration-color: var(--accent-ink);
+      text-underline-offset: 4px;
+    }
+
+    /* ---------- Stats (dark) ---------- */
+    .stats {
+      background: var(--dark);
+      color: #fff;
+      border-top: 1px solid rgba(229, 226, 219, 0.2);
+      border-bottom: 1px solid rgba(229, 226, 219, 0.2);
+      padding: 128px 0;
+    }
+    .stats .narrow { max-width: 1280px; }
+    .stats-head {
+      display: flex; flex-direction: column; gap: 24px;
+      max-width: 768px;
+      padding-bottom: 48px;
+    }
+    .stats h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 52px;
+      line-height: 60px;
+      letter-spacing: -1.04px;
+      color: #fff;
+    }
+    .stats-head p { font-size: 18px; line-height: 28px; color: var(--muted-light); }
+    .stats-grid {
+      display: flex;
+      border-top: 1px solid rgba(229, 226, 219, 0.2);
+      border-bottom: 1px solid rgba(229, 226, 219, 0.2);
+      padding: 49px 0;
+    }
+    .stat {
+      flex: 1 0 0;
+      padding: 0 32px;
+    }
+    .stat + .stat { border-left: 1px solid rgba(229, 226, 219, 0.2); }
+    .stat:first-child { padding-left: 0; }
+    .stat-num {
+      font-family: var(--serif);
+      font-size: 52px;
+      line-height: 60px;
+      letter-spacing: -1.04px;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .stat-label {
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: var(--muted-light);
+    }
+    .stats-note {
+      margin-top: 32px;
+      font-size: 12px;
+      letter-spacing: 0.6px;
+      color: rgba(202, 198, 196, 0.6);
+    }
+
+    /* ---------- Services ---------- */
+    .services {
+      background: var(--bg);
+      padding: 128px 0;
+    }
+    .section-head { display: flex; flex-direction: column; gap: 16px; margin-bottom: 64px; max-width: 768px; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 32px;
+    }
+    .service-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 33px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .service-card .card-tag {
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.96px;
+      color: var(--accent-ink);
+    }
+    .service-card h3 {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 30px;
+      letter-spacing: -0.11px;
+      padding-top: 4px;
+    }
+    .service-card p { font-size: 16px; line-height: 26px; color: var(--muted); }
+
+    /* ---------- Process ---------- */
+    .process {
+      background: var(--bg-alt);
+      border-top: 1px solid var(--border);
+      padding: 128px 0;
+    }
+    .process .section-head { margin-bottom: 64px; }
+    .steps {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 32px;
+    }
+    .steps::before {
+      content: "";
+      position: absolute;
+      left: 0; right: 0;
+      top: 56px;
+      height: 1px;
+      background: var(--border);
+    }
+    .step { position: relative; padding-top: 16px; }
+    .step-num {
+      width: 48px; height: 48px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 22px;
+      color: var(--accent-ink);
+      margin-bottom: 24px;
+    }
+    .step h3 {
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .step p { font-size: 16px; line-height: 26px; color: var(--muted); }
+
+    /* ---------- Why work with me ---------- */
+    .why {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 128px 48px;
+    }
+    .why-grid {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 64px;
+      align-items: start;
+    }
+    .why-left { grid-column: 1 / span 6; display: flex; flex-direction: column; gap: 40px; }
+    .why-left h2 { font-family: var(--serif); font-weight: 400; font-size: 40px; line-height: 48px; letter-spacing: -0.6px; }
+    .principles { display: flex; flex-direction: column; gap: 16px; }
+    .principle {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 17px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 500;
+      font-size: 14px;
+    }
+    .check {
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-size: 11px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .why-right { grid-column: 7 / span 6; padding-top: 8px; display: flex; flex-direction: column; }
+    .why-right p.lead { margin-bottom: 32px; }
+    .why-right p.lead + p.lead { margin-top: 0; }
+    .pull {
+      border-left: 2px solid var(--accent);
+      padding: 8px 0 8px 26px;
+    }
+    .pull h3 {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 40px;
+      letter-spacing: -0.32px;
+    }
+
+    /* ---------- Selected work ---------- */
+    .work {
+      background: var(--bg-alt);
+      border-top: 1px solid var(--border);
+      padding: 128px 0;
+    }
+    .work-grid {
+      display: flex;
+      gap: 32px;
+    }
+    .project {
+      flex: 1 1 0;
+      min-width: 0;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-img {
+      height: 256px;
+      background: var(--border);
+      overflow: hidden;
+    }
+    .project-img img { width: 100%; height: 100%; object-fit: cover; }
+    .project-body {
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+      flex: 1;
+    }
+    .project-tag {
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.96px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .project h3 {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 30px;
+      letter-spacing: -0.11px;
+      margin-bottom: 12px;
+    }
+    .project p { font-size: 16px; line-height: 26px; color: var(--muted); }
+    .project .link { color: var(--accent-ink); font-weight: 500; font-size: 14px; }
+
+    /* ---------- Content philosophy ---------- */
+    .philosophy {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 128px 48px;
+    }
+    .philosophy-inner {
+      max-width: 896px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      align-items: center;
+    }
+    .philosophy .eyebrow { text-align: center; }
+    .philosophy h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 52px;
+      line-height: 60px;
+      letter-spacing: -1.04px;
+      text-align: center;
+    }
+    .philosophy-card {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 73px 49px 49px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      width: 100%;
+    }
+    .philosophy-card .big {
+      font-family: var(--serif);
+      font-size: 24px;
+      line-height: 36px;
+      letter-spacing: -0.24px;
+    }
+    .philosophy-card .list {
+      border-left: 1px solid var(--border);
+      padding-left: 17px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .philosophy-card .list p { font-size: 18px; line-height: 28px; color: var(--muted); }
+    .philosophy-card .closer {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 30px;
+      padding-top: 8px;
+    }
+
+    /* ---------- Testimonials ---------- */
+    .testimonials {
+      background: var(--bg-alt);
+      border-top: 1px solid var(--border);
+      padding: 128px 0;
+    }
+    .testimonials .section-head { margin-bottom: 64px; }
+    .quotes {
+      display: flex;
+      gap: 32px;
+    }
+    .quote-card {
+      flex: 1 1 0;
+      min-width: 0;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 33px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 40px;
+    }
+    .quote-card blockquote {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 20px;
+      line-height: 32px;
+    }
+    .quote-card .who .n { font-weight: 600; font-size: 14px; }
+    .quote-card .who .r { font-size: 14px; line-height: 22px; color: var(--muted); }
+
+    /* ---------- FAQ ---------- */
+    .faq {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 128px 48px;
+    }
+    .faq-inner {
+      max-width: 896px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 64px;
+    }
+    .faq h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 40px;
+      line-height: 48px;
+      letter-spacing: -0.6px;
+      text-align: center;
+    }
+    .faq-list { display: flex; flex-direction: column; gap: 16px; }
+    details.faq-item {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    details.faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 30px;
+      letter-spacing: -0.11px;
+    }
+    details.faq-item summary::-webkit-details-marker { display: none; }
+    details.faq-item summary::after {
+      content: "";
+      width: 8px; height: 8px;
+      border-right: 1.5px solid var(--muted);
+      border-bottom: 1.5px solid var(--muted);
+      transform: rotate(45deg);
+      transition: transform 0.2s;
+      margin-left: 16px;
+      flex-shrink: 0;
+    }
+    details.faq-item[open] summary::after { transform: rotate(-135deg); }
+    details.faq-item .answer {
+      padding: 0 24px 24px;
+      font-size: 16px;
+      line-height: 26px;
+      color: var(--muted);
+    }
+
+    /* ---------- Final CTA (dark) ---------- */
+    .final-cta {
+      background: var(--dark);
+      color: #fff;
+      border-top: 1px solid rgba(229, 226, 219, 0.2);
+      padding: 128px 48px;
+      text-align: center;
+    }
+    .final-cta-inner {
+      max-width: 1024px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+    }
+    .final-cta h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 52px;
+      line-height: 60px;
+      letter-spacing: -1.04px;
+      color: #fff;
+    }
+    .final-cta p {
+      max-width: 672px;
+      font-size: 18px;
+      line-height: 28px;
+      color: var(--muted-light);
+      padding-bottom: 8px;
+    }
+    .final-cta .btn { background: var(--accent); color: #fff; padding: 16px 32px; }
+
+    /* ---------- Contact form ---------- */
+    .contact {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 128px 48px;
+    }
+    .contact-inner {
+      max-width: 672px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .contact .section-head { margin-bottom: 0; max-width: none; }
+    .contact-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 40px;
+    }
+    .field { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+    .field label {
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    .field input {
+      font-family: var(--sans);
+      font-size: 16px;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: var(--bg);
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .field input:focus { border-color: var(--accent); }
+    .form-submit {
+      width: 100%;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 14px 28px;
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 14px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+    .form-status {
+      margin-top: 16px;
+      font-size: 14px;
+      min-height: 20px;
+      text-align: center;
+    }
+    .form-status.success { color: #166534; }
+    .form-status.error { color: #b91c1c; }
+
+    /* ---------- Footer ---------- */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 64px 0 48px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 48px;
+      padding-bottom: 49px;
+      border-bottom: 1px solid var(--border);
+    }
+    .foot-brand { grid-column: 1 / span 6; display: flex; flex-direction: column; gap: 8px; }
+    .foot-brand .name { font-family: var(--serif); font-weight: 500; font-size: 22px; }
+    .foot-brand .role { font-weight: 600; font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted); }
+    .foot-brand .tag { margin-top: 8px; max-width: 448px; font-size: 16px; line-height: 26px; color: var(--muted); }
+    .foot-col { display: flex; flex-direction: column; gap: 16px; }
+    .foot-col.nav-col { grid-column: 7 / span 3; }
+    .foot-col.social-col { grid-column: 10 / span 3; }
+    .foot-col h4 { font-weight: 600; font-size: 12px; letter-spacing: 0.6px; text-transform: uppercase; }
+    .foot-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .foot-col a { font-size: 14px; color: var(--muted); }
+    .foot-col a:hover { color: var(--ink); }
+    .copyright {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      padding-top: 32px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .copyright nav { display: flex; gap: 24px; }
+    .copyright a:hover { color: var(--ink); }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 1100px) {
+      .container, .nav, .narrow { padding-left: 32px; padding-right: 32px; }
+      .hero-copy h1, .stats h2, .philosophy h2, .final-cta h2 { font-size: 44px; line-height: 52px; }
+      .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 48px; }
+      .steps::before { display: none; }
+      .quotes { flex-direction: column; }
+      .work-grid { flex-direction: column; }
+      .project-img { height: 220px; }
+    }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .menu-toggle { display: inline-block; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 80px; left: 0; right: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        padding: 16px 32px 24px;
+        gap: 16px;
+      }
+      .hero { padding: 48px 0 96px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 56px; }
+      .hero-copy, .hero-visual { grid-column: auto; }
+      .portrait { margin: 0 auto; }
+      .post-card { left: 16px; bottom: -24px; }
+      .badge { right: 12px; top: -14px; }
+      .intro-grid, .why-grid, .footer-grid { grid-template-columns: 1fr; }
+      .intro-label, .intro-body, .why-left, .why-right,
+      .foot-brand, .foot-col.nav-col, .foot-col.social-col { grid-column: auto; }
+      .why-right { padding-top: 0; }
+      .stats-grid { flex-direction: column; padding: 32px 0; }
+      .stat { padding: 24px 0; }
+      .stat + .stat { border-left: none; border-top: 1px solid rgba(229, 226, 219, 0.2); }
+      .stat:first-child { padding-left: 0; }
+      .philosophy-card { padding: 40px 28px; }
+      .faq-inner { gap: 40px; }
+    }
+
+    @media (max-width: 640px) {
+      .container, .nav, .narrow, .why, .philosophy, .faq, .final-cta, .contact { padding-left: 20px; padding-right: 20px; }
+      .nav { padding-left: 20px; padding-right: 20px; height: 72px; }
+      .nav-links.open { top: 72px; }
+      .brand { font-size: 20px; }
+      .nav .btn-nav { display: none; }
+      .hero-copy h1, .stats h2, .philosophy h2, .final-cta h2 { font-size: 36px; line-height: 44px; }
+      .h2, .faq h2 { font-size: 30px; line-height: 38px; }
+      .services-grid, .steps { grid-template-columns: 1fr; }
+      .intro, .stats, .services, .process, .work, .testimonials, .why, .philosophy, .faq, .final-cta, .contact { padding-top: 80px; padding-bottom: 80px; }
+      .hero { padding-top: 32px; }
+      .post-card { position: relative; left: 0; bottom: 0; margin-top: -40px; margin-left: 12px; margin-right: 12px; max-width: none; }
+      .badge { position: relative; top: 0; right: 0; margin: 12px 0 0 auto; display: table; }
+      .cta-row .btn { width: 100%; }
+      .project-body { padding: 24px; }
+      .contact-card { padding: 28px 22px; }
+      .philosophy-card { padding: 32px 22px; }
+      details.faq-item summary { font-size: 19px; padding: 20px; }
+      .copyright { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ 1. STICKY HEADER ============ -->
+  <header class="site-header" id="top">
+    <div class="nav">
+      <a href="#top" class="brand">Elena Vance</a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#work">Work</a>
+        <a href="#testimonials">Testimonials</a>
+      </nav>
+      <div style="display:flex; align-items:center; gap:12px;">
+        <a href="#contact" class="btn btn-primary btn-nav">Let's Talk →</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">Menu</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============ 2. HERO ============ -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">LinkedIn Content Strategist</p>
+            <h1>Turn your LinkedIn presence<br />into a reason people remember<br />you.</h1>
+            <p class="lead">I help founders, professionals, and personal brands turn their ideas and expertise into clear, thoughtful LinkedIn content that builds credibility, starts conversations, and attracts the right opportunities.</p>
+            <div class="cta-row">
+              <a href="https://payments.cashfree.com/forms/getaudit" target="_blank" rel="noopener" class="btn btn-primary">Let's Work Together →</a>
+              <a href="#work" class="btn btn-outline">View My Work</a>
+            </div>
+            <p class="eyebrow hero-tags">Strategy · Content · Personal Branding</p>
+          </div>
+
+          <div class="hero-visual">
+            <div class="portrait">
+              <img src="https://www.figma.com/api/mcp/asset/5a018e2d-2806-402d-b54a-41f3b31352b5.png" alt="Elena Vance, LinkedIn Content Strategist seated at wooden desk" />
+            </div>
+            <div class="post-card">
+              <div class="post-author">
+                <div class="avatar">EV</div>
+                <div>
+                  <div class="name">Elena Vance • 1st</div>
+                  <div class="role">Founder &amp; Strategist</div>
+                </div>
+              </div>
+              <p class="post-quote">"The best LinkedIn content doesn't sound like marketing. It sounds like an honest conversation between two peers."</p>
+              <div class="post-meta">1.4k likes · 182 comments</div>
+            </div>
+            <div class="badge">Clear thinking creates clear writing.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 3. INTRODUCTION ============ -->
+    <section class="intro" id="about">
+      <div class="container">
+        <div class="intro-grid">
+          <div class="intro-label">
+            <p class="eyebrow">About the work</p>
+          </div>
+          <div class="intro-body">
+            <h2 class="h2">Your expertise deserves more than occasional<br />posts.</h2>
+            <p class="lead">You already have the experience, knowledge, and stories. The challenge is turning them into content that people actually want to read.</p>
+            <p class="lead">I help you find your voice, shape your ideas, and build a LinkedIn presence that <em>feels genuinely yours</em> — not forced, overly polished, or copied from someone else.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4. STATS (DARK) ============ -->
+    <section class="stats">
+      <div class="container">
+        <div class="stats-head">
+          <h2>Content that creates momentum.</h2>
+          <p>A strong LinkedIn presence isn't built overnight. It comes from showing up consistently with the right message, the right perspective, and a clear purpose.</p>
+        </div>
+        <div class="stats-grid">
+          <div class="stat">
+            <div class="stat-num">50+</div>
+            <div class="stat-label">Personal brands supported</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">500+</div>
+            <div class="stat-label">Posts crafted</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">10K+</div>
+            <div class="stat-label">Organic engagements<br />generated</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">3+ Years</div>
+            <div class="stat-label">Content &amp; personal branding<br />experience</div>
+          </div>
+        </div>
+        <p class="stats-note">Replace these placeholder numbers with verified client results.</p>
+      </div>
+    </section>
+
+    <!-- ============ 5. SERVICES ============ -->
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">What I do</p>
+          <h2 class="h2">From scattered ideas to a clear content direction.</h2>
+        </div>
+        <div class="services-grid">
+          <div class="service-card">
+            <span class="card-tag">CARD 01</span>
+            <h3>LinkedIn Content Strategy</h3>
+            <p>A practical content plan built around your expertise, audience, and goals.</p>
+          </div>
+          <div class="service-card">
+            <span class="card-tag">CARD 02</span>
+            <h3>Personal Branding</h3>
+            <p>Positioning that helps people understand who you are, what you know, and why they should pay attention.</p>
+          </div>
+          <div class="service-card">
+            <span class="card-tag">CARD 03</span>
+            <h3>Content Writing</h3>
+            <p>Thoughtful LinkedIn posts written in a natural voice that sounds like you — not a marketing template.</p>
+          </div>
+          <div class="service-card">
+            <span class="card-tag">CARD 04</span>
+            <h3>Content Planning</h3>
+            <p>A consistent system for deciding what to post, when to post, and what each piece of content should achieve.</p>
+          </div>
+          <div class="service-card">
+            <span class="card-tag">CARD 05</span>
+            <h3>Profile Positioning</h3>
+            <p>A stronger LinkedIn profile that communicates your value clearly from the first impression.</p>
+          </div>
+          <div class="service-card">
+            <span class="card-tag">CARD 06</span>
+            <h3>Content Repurposing</h3>
+            <p>Turning one strong idea into multiple useful pieces of content without making everything feel repetitive.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 6. PROCESS ============ -->
+    <section class="process" id="process">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">How it works</p>
+          <h2 class="h2">A simple process. A clear direction. Better content.</h2>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">01</div>
+            <h3>Understand</h3>
+            <p>I start by learning about you, your work, your audience, and the ideas you want to be known for.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">02</div>
+            <h3>Position</h3>
+            <p>We define your voice, content pillars, and the space you want to own on LinkedIn.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">03</div>
+            <h3>Create</h3>
+            <p>Your ideas are turned into thoughtful posts, stories, insights, and conversations that feel authentic to you.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">04</div>
+            <h3>Refine</h3>
+            <p>We look at what resonates, learn from the response, and continuously improve the content direction.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 7. WHY WORK WITH ME ============ -->
+    <section class="why">
+      <div class="why-grid">
+        <div class="why-left">
+          <h2>Because good personal branding<br />should still feel personal.</h2>
+          <div class="principles">
+            <div class="principle"><span class="check">✓</span>No recycled hooks.</div>
+            <div class="principle"><span class="check">✓</span>No copy-paste content calendars.</div>
+            <div class="principle"><span class="check">✓</span>No pretending to be someone you're not.</div>
+          </div>
+        </div>
+        <div class="why-right">
+          <p class="lead">I focus on understanding the person behind the profile and building content around their actual experience, opinions, and expertise.</p>
+          <p class="lead">The goal isn't simply to post more.</p>
+          <div class="pull">
+            <h3>It's to become more recognizable for<br />what you know.</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 8. SELECTED WORK ============ -->
+    <section class="work" id="work">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Selected work</p>
+          <h2 class="h2">Ideas turned into conversations.</h2>
+          <p class="lead">A selection of LinkedIn content strategies, personal branding projects, and content campaigns created to help professionals communicate with more clarity and confidence.</p>
+        </div>
+        <div class="work-grid">
+          <article class="project">
+            <div class="project-img">
+              <img src="https://www.figma.com/api/mcp/asset/0940d52b-a67b-4197-bea2-ba231c2e3e70.png" alt="Laptop workspace displaying architectural editorial layouts and notebook" />
+            </div>
+            <div class="project-body">
+              <div>
+                <p class="project-tag">PROJECT 01</p>
+                <h3>Founder Personal Brand</h3>
+                <p>Building a consistent LinkedIn voice around leadership and business.</p>
+              </div>
+              <a href="#" class="link">View Case Study →</a>
+            </div>
+          </article>
+          <article class="project">
+            <div class="project-img">
+              <img src="https://www.figma.com/api/mcp/asset/26a8d395-c6e8-4204-af51-45723c2663d4.png" alt="Executive thought leadership content" />
+            </div>
+            <div class="project-body">
+              <div>
+                <p class="project-tag">PROJECT 02</p>
+                <h3>Executive Thought Leadership</h3>
+                <p>Turning industry experience into content people want to follow.</p>
+              </div>
+              <a href="#" class="link">View Case Study →</a>
+            </div>
+          </article>
+          <article class="project">
+            <div class="project-img">
+              <img src="https://www.figma.com/api/mcp/asset/a25cfa7d-8b23-4792-aa4b-75a8357dac69.png" alt="Professional personal brand content" />
+            </div>
+            <div class="project-body">
+              <div>
+                <p class="project-tag">PROJECT 03</p>
+                <h3>Professional Personal Brand</h3>
+                <p>Creating a stronger online presence through strategic, relatable content.</p>
+              </div>
+              <a href="#" class="link">View Case Study →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 9. CONTENT PHILOSOPHY ============ -->
+    <section class="philosophy">
+      <div class="philosophy-inner">
+        <p class="eyebrow">Content philosophy</p>
+        <h2>People connect with perspectives,<br />not perfect posts.</h2>
+        <div class="philosophy-card">
+          <p class="big">The best LinkedIn content doesn't always come from complicated ideas.</p>
+          <div class="list">
+            <p>Sometimes it's a lesson from a difficult decision.</p>
+            <p>A mistake that taught you something.</p>
+            <p>An opinion you've developed over years of experience.</p>
+            <p>Or a simple observation that makes someone stop and think.</p>
+          </div>
+          <p class="closer">That's where meaningful content starts.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 10. TESTIMONIALS ============ -->
+    <section class="testimonials" id="testimonials">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Kind words</p>
+          <h2 class="h2">Words from people I've worked with.</h2>
+        </div>
+        <div class="quotes">
+          <div class="quote-card">
+            <blockquote>"The biggest difference was that the content finally sounded like me. It was clear, thoughtful, and consistent — and I started seeing much better conversations around my posts."</blockquote>
+            <div class="who">
+              <div class="n">Founder</div>
+              <div class="r">SaaS Company</div>
+            </div>
+          </div>
+          <div class="quote-card">
+            <blockquote>"I had plenty of ideas but struggled to turn them into content. The strategy gave me direction, and the writing made it much easier to show up consistently."</blockquote>
+            <div class="who">
+              <div class="n">Marketing Consultant</div>
+              <div class="r">Independent Advisory</div>
+            </div>
+          </div>
+          <div class="quote-card">
+            <blockquote>"Replace this with a real client testimonial."</blockquote>
+            <div class="who">
+              <div class="n">Placeholder Client</div>
+              <div class="r">Executive Partner</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 11. FAQ ============ -->
+    <section class="faq">
+      <div class="faq-inner">
+        <h2>Questions, answered.</h2>
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>Do you only write LinkedIn posts?</summary>
+            <div class="answer">My focus is LinkedIn, and I can also help repurpose your ideas into related content, such as profile positioning and content planning.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Will the content sound like me?</summary>
+            <div class="answer">That's the goal. We start from your real experience, opinions, and language, so the writing reflects how you actually think and speak.</div>
+          </details>
+          <details class="faq-item">
+            <summary>How often should I post on LinkedIn?</summary>
+            <div class="answer">It depends on your goals and capacity. Consistency matters more than volume, and we'll set a rhythm you can sustain.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Can you work with founders and executives?</summary>
+            <div class="answer">Yes. Founders, executives, and professionals building a personal brand are the core of the work.</div>
+          </details>
+          <details class="faq-item">
+            <summary>How do we get started?</summary>
+            <div class="answer">Pay the audit fee using the button above, then share your details in the contact form below. We'll schedule a short conversation to begin.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 12. FINAL CTA (DARK) ============ -->
+    <section class="final-cta">
+      <div class="final-cta-inner">
+        <h2>You have the expertise. Let's make sure<br />people see it.</h2>
+        <p>Your next opportunity could start with something as simple as a well-told story, a useful idea, or an honest perspective. Let's turn what you know into content people remember.</p>
+        <a href="https://payments.cashfree.com/forms/getaudit" target="_blank" rel="noopener" class="btn">Start a Conversation →</a>
+      </div>
+    </section>
+
+    <!-- ============ 13. CONTACT FORM (3 fields) ============ -->
+    <section class="contact" id="contact">
+      <div class="contact-inner">
+        <div class="section-head">
+          <p class="eyebrow">Get in touch</p>
+          <h2 class="h2">Share your details and I'll be in touch.</h2>
+        </div>
+        <div class="contact-card">
+          <form id="contactForm" novalidate>
+            <div class="field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your full name" required />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required />
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required />
+            </div>
+            <button type="submit" class="form-submit" id="submitBtn">Send my details →</button>
+            <p class="form-status" id="formStatus" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ 14. FOOTER ============ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="foot-brand">
+          <div class="name">Elena Vance</div>
+          <div class="role">LinkedIn Content Strategist</div>
+          <p class="tag">Helping professionals turn expertise into a personal brand people remember.</p>
+        </div>
+        <div class="foot-col nav-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="foot-col social-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="#contact">Email</a></li>
+            <li><a href="#">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <span>© 2026 Elena Vance. All rights reserved.</span>
+        <nav>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ---- Mobile menu ----
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => navLinks.classList.remove('open'))
+    );
+
+    // ---- Form submission to Google Apps Script ----
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzecFvM5hEnncv6zFRBDSK6pBpONuifIMO7Y6_JZGjGdYEDyGhdGd-P2k8i4QJnCHWJ/exec";
+
+    const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const statusEl = document.getElementById('formStatus');
+
+    function showSuccess() {
+      statusEl.className = 'form-status success';
+      statusEl.textContent = 'Thank you! Your details have been received.';
+      form.reset();
+      submitBtn.disabled = false;
+    }
+
+    function showError() {
+      statusEl.className = 'form-status error';
+      statusEl.textContent = 'Something went wrong. Please try again.';
+      submitBtn.disabled = false;
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+
+      if (!name || !email || !phone) {
+        statusEl.className = 'form-status error';
+        statusEl.textContent = 'Please fill in name, email and phone.';
+        return;
+      }
+
+      submitBtn.disabled = true;
+      statusEl.className = 'form-status';
+      statusEl.textContent = 'Sending…';
+
+      const url = SCRIPT_URL + "?" + new URLSearchParams({ name, email, phone });
+
+      fetch(url, { method: "GET", mode: "no-cors" })
+        .then(() => showSuccess())
+        .catch(() => showError());
+    });
+  </script>
+</body>
+</html>
